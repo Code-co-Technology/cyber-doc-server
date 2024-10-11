@@ -136,10 +136,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'authen.authentication.EmailOrUsernameModelBackend',
+    # 'authen.authentication.EmailOrUsernameModelBackend',
 ]
 
-# AUTH_USER_MODEL = "authen.CustomUser"
+AUTH_USER_MODEL = "authen.CustomUser"
 
 CORS_ALLOWED_ORIGINS = [
     os.environ["SITE1"],
@@ -190,9 +190,9 @@ AUTHENTICATION_CLASSES = ("dj_rest_auth.authentication.AllAuthJWTAuthentication"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ["EMAIL_HOST"]
-EMAIL_PORT = os.environ["EMAIL_PORT"]
-EMAIL_USE_TLS = os.environ["EMAIL_USE_TLS"]
-EMAIL_USE_SSL = os.environ["EMAIL_USE_SSL"]
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
 EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 DEFAULT_FROM_EMAIL = os.environ["DEFAULT_FROM_EMAIL"]
